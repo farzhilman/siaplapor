@@ -16,7 +16,12 @@ class Entry extends ED_Controller {
 	public function index()
 	{
 		$this->data['_head_title'] = 'Siap Lapor Ketintang';
-		$this->data["pegawai"] = $this->m_pegawai->get("result",NULL,NULL,"nama");
+		if ($this->session->userdata('user_level') == '3') {
+			$where['nama'] = $this->session->userdata('user_name');
+			$this->data["pegawai"] = $this->m_pegawai->get_by($where, "result",NULL,NULL,"nama");
+		} else {
+			$this->data["pegawai"] = $this->m_pegawai->get("result",NULL,NULL,"nama");
+		}
 		$this->data["giat"] = $this->m_laporan->select_distinct_giat();
 		$this->data["_form"] = $this->load->view('contents/entry/_form', $this->data, TRUE);;
 		$this->data["status"] = '';
