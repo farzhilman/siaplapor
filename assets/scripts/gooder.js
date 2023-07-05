@@ -55,6 +55,10 @@ var Gooder = {
 		    }
 		});
 
+		$.validator.addMethod('filesize', function (value, element, param) {
+		    return this.optional(element) || (element.files[0].size <= param)
+		}, 'Ukuran file harus lebih kecil dari {0}');
+
 		$('#form-kunjungan').validate({
 		    rules: {
 		    	petugas: 'required',
@@ -65,7 +69,10 @@ var Gooder = {
 		    	rt: 'required',
 		    	tinjau: 'required',
 		    	saran: 'required',
-		    	dokumentasi: 'required',
+		    	dokumentasi: {
+		            required: true,
+		            extension: "JPG|jpg|JPEG|jpeg|PNG|png",
+		        },
 		    },
 		    messages: {
 		      petugas: "Mohon untuk mengisi nama Petugas.",
@@ -76,7 +83,10 @@ var Gooder = {
 		      rt: "Mohon untuk memilih RT.",
 		      tinjau: "Mohon untuk mengisi Hasil Tinjau Lokasi.",
 		      saran: "Mohon untuk mengisi Saran Masukan.",
-		      dokumentasi: "Mohon untuk mengisi dokumentasi.",
+		      dokumentasi: {
+		        required: "Mohon untuk mengupload foto.",                  
+		        extension: "File harus foto.",
+		      },
 		    },
 		    submitHandler: function(form) {
 		        Swal.fire({

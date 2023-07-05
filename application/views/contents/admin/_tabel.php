@@ -26,7 +26,13 @@
     	<td><?=$l->rw?></td>
     	<td><?=$l->tinjau?></td>
     	<td><?=$l->saran?></td>
-    	<td><?=$l->dokumentasi?></td>
+    	<td>
+            <?php if ($l->dokumentasi != NULL):?>
+            <a href="<?=base_url('uploaded/foto/'.$l->dokumentasi)?>" data-toggle="lightbox" data-gallery="example-gallery" class="col-md-2" style="padding: 0px;">
+                <img id="myImg" src="<?=base_url('uploaded/foto/'.$l->dokumentasi)?>" class="img-fluid" alt='' style="width: 100px; max-width: 100px;">
+            </a>
+            <?php endif;?>
+        </td>
     	<td style="text-align: center;">
     		<div class="btn-group-vertical">
   				<button type="button" class="btn bg-maroon btn-sm btn-hapus" id="btn-hapus-<?=$l->id?>" data-id="<?=$l->id?>" title="Hapus"><i class="fas fa-trash"></i></button>

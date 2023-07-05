@@ -27,6 +27,7 @@
 <script src="<?=base_url('assets/plugins/jquery-validation/jquery.validate.min.js')?>"></script>
 <script src="<?=base_url('assets/plugins/jquery-validation/additional-methods.min.js')?>"></script>
 <!-- DataTables  & Plugins -->
+<script src="<?=base_url('assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js')?>"></script>
 <script src="<?=base_url('assets/plugins/datatables/jquery.dataTables.min.js')?>"></script>
 <script src="<?=base_url('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')?>"></script>
 <script src="<?=base_url('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js')?>"></script>
@@ -90,5 +91,6 @@
 		$("#example1").DataTable({
 	  	"responsive": true, "lengthChange": false, "autoWidth": false, "pageLength": 50, "pagination": true, "ordering": false
 	  });
+    bsCustomFileInput.init();
   });
 </script>
