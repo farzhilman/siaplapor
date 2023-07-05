@@ -12,60 +12,37 @@ class M_laporan extends ED_Model {
 		parent::__construct();
 	}
 
-	public function select_kunjungan_soon()
+	public function select_count_laporan()
 	{
 		$query = $this->db->query("
-			SELECT k.*, t.topik, b.bidang_nama
-			from kunjungan k left join topik t ON t.id = k.id_topik left join bidang b ON b.id = k.id_bidang
-			where k.is_hapus = 'f'
-			and tanggal >= now()::date
-			order by tanggal, waktu
+			SELECT count(giat) as count
+			from laporan
+			where is_hapus = 0
 			");
 		return $query->row();
 	}
 
-	public function select_kunjungan_belum()
+	public function select_count_laporan_pergiat($giat)
 	{
 		$query = $this->db->query("
-			SELECT k.*, t.topik, case when tanggal = now()::date then 'sekarang' else 'belum' end as ket_tanggal, b.bidang_nama
-			from kunjungan k left join topik t ON t.id = k.id_topik left join bidang b ON b.id = k.id_bidang
-			where k.is_hapus = 'f'
-			and tanggal >= now()::date
-			order by tanggal, waktu
+			SELECT count(giat) as count
+			from laporan
+			where giat = '$giat'
+			and is_hapus = 0
 			");
-		return $query->result();
-	}
-	
-	public function select_kunjungan_sudah()
-	{
-		$query = $this->db->query("
-			SELECT k.*, t.topik, b.bidang_nama
-			from kunjungan k left join topik t ON t.id = k.id_topik left join bidang b ON b.id = k.id_bidang
-			where k.is_hapus = 'f'
-			and tanggal < now()::date
-			order by tanggal desc, waktu desc
-			");
-		return $query->result();
+		return $query->row();
 	}
 
-	public function select_row($id)
+	public function select_laporan_terbanyak()
 	{
 		$query = $this->db->query("
-			SELECT k.*, t.topik, b.bidang_nama
-			from kunjungan k left join topik t ON t.id = k.id_topik left join bidang b ON b.id = k.id_bidang
-			where k.id = $id
+			SELECT petugas, count(petugas) as count
+			from laporan
+			where is_hapus = 0
+			GROUP BY petugas
+			order by count desc
+			Limit 5
 			");
-		return $query->row();
-	}
-	
-	public function get_target($id, $tipe)
-	{
-		$query = $this->db->query("
-			SELECT *
-			from $tipe
-			where id = $id
-			and is_hapus = 'f'
-			");
-		return $query->row();
+		return $query->result();
 	}
 }

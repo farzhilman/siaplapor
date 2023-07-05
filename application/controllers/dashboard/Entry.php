@@ -15,7 +15,7 @@ class Entry extends ED_Controller {
 
 	public function index()
 	{
-		$this->data['_head_title'] = 'Siap Lapor';
+		$this->data['_head_title'] = 'Siap Lapor Ketintang';
 		$this->data["pegawai"] = $this->m_pegawai->get("result",NULL,NULL,"nama");
 		$this->data["_form"] = $this->load->view('contents/entry/_form', $this->data, TRUE);;
 		$this->data["status"] = '';
@@ -75,7 +75,7 @@ class Entry extends ED_Controller {
             $data['dokumentasi'] = $dataupload['file_name'];
             $msg = $dataupload['file_name'].' berhasil diupload.';
         }
-        
+
         // $this->output->set_content_type('application/json')->set_output(json_encode(array('status'=>$status_upload,'msg'=>$msg)));
 
         $this->db->trans_start();

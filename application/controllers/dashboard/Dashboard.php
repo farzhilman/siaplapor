@@ -17,29 +17,15 @@ class Dashboard extends ED_Controller {
 	{
 		$data_tanya = [];
 		$data_tanyas = [];
-		$this->data['_head_title'] = 'Siap Lapor';
+		$this->data['_head_title'] = 'Siap Lapor Ketintang';
 
-		// $this->data['kunjungan'] = $this->m_kunjungan->select_kunjungan_soon();
-
-		// $where_kunjungan['is_hapus'] = 'f';
-		// $where_kunjungan['tanggal >='] = date('d-M-y');
-		// $this->data['kunjungan_belum'] = $this->m_kunjungan->select_kunjungan_belum();
-		// foreach ($this->data['kunjungan_belum'] as $k) {
-		// 	$id_kunjungan = $k->id;
-		// 	$where_tanya['id_kunjungan'] = $id_kunjungan;
-		// 	$data_tanya[$k->id] = $this->m_pertanyaan->get_by($where_tanya,"result");
-		// }
-		// $this->data['tanya'] = $data_tanya;
-
-		// $where_kunjungans['is_hapus'] = 'f';
-		// $where_kunjungans['tanggal <='] = date('d-M-y');
-		// $this->data['kunjungan_sudah'] = $this->m_kunjungan->select_kunjungan_sudah();
-		// foreach ($this->data['kunjungan_sudah'] as $ks) {
-		// 	$id_kunjungans = $ks->id;
-		// 	$where_tanyas['id_kunjungan'] = $id_kunjungans;
-		// 	$data_tanyas[$ks->id] = $this->m_pertanyaan->get_by($where_tanyas,"result");
-		// }
-		// $this->data['tanyas'] = $data_tanyas;
+        $this->data["count_lapor"] = $this->m_laporan->select_count_laporan();
+        $this->data["count_giat1"] = $this->m_laporan->select_count_laporan_pergiat('LAPORAN WARGA');
+        $this->data["count_giat2"] = $this->m_laporan->select_count_laporan_pergiat('KEJADIAN DARURAT');
+        $this->data["count_giat3"] = $this->m_laporan->select_count_laporan_pergiat('KEGIATAN RUTIN');
+        $this->data["count_giat4"] = $this->m_laporan->select_count_laporan_pergiat('ARAHAN PIMPINAN');
+        $this->data["laporan_terbanyak"] = $this->m_laporan->select_laporan_terbanyak();
+		
 		$this->_load_view_dashboard();
 	}
 

@@ -18,8 +18,8 @@ class Login extends ED_Controller {
 			redirect('dashboard');
 		} else {
 
-			$this->data['_head_title'] = 'Masuk';
-			$this->data['_apps_title'] = ' | Bappedalitbang Surabaya';
+			$this->data['_head_title'] = 'Masuk | Siap Lapor Ketintang';
+			$this->data['_apps_title'] = ' |';
 			// $this->data['__head_page'] = $this->load->view('components/head', $this->data, TRUE);
 			$this->data['__navbar_page'] = $this->load->view('components/navbar', $this->data, TRUE);
 			$this->data['__footer_page'] = $this->load->view('components/footer', $this->data, TRUE);

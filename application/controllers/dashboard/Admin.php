@@ -15,6 +15,7 @@ class Admin extends ED_Controller {
 
 	public function index($t = '')
 	{
+		$this->data['_head_title'] = 'Siap Lapor Ketintang';
 		$this->data['status'] = '';
 		$where['is_hapus'] = '0';
 		$this->data['laporan'] = $this->m_laporan->get_by($where,"result", NULL, NuLL, 'date_created');

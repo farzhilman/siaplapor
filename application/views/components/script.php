@@ -26,6 +26,11 @@
 <!-- jquery-validation -->
 <script src="<?=base_url('assets/plugins/jquery-validation/jquery.validate.min.js')?>"></script>
 <script src="<?=base_url('assets/plugins/jquery-validation/additional-methods.min.js')?>"></script>
+<script src="<?=base_url('assets/plugins/flot/jquery.flot.js')?>"></script>
+<!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+<script src="<?=base_url('assets/plugins/flot/plugins/jquery.flot.resize.js')?>"></script>
+<!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+<script src="<?=base_url('assets/plugins/flot/plugins/jquery.flot.pie.js')?>"></script>
 <!-- DataTables  & Plugins -->
 <script src="<?=base_url('assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js')?>"></script>
 <script src="<?=base_url('assets/plugins/datatables/jquery.dataTables.min.js')?>"></script>

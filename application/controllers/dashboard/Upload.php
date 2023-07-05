@@ -18,22 +18,19 @@ class Upload extends ED_Controller {
 
    public function uploadjpg($id){
         // $id = $this->input->post('id');
-    
-        $config['upload_path'] = './uploaded/foto/'.$id;
+        $config['upload_path'] = './uploaded/foto/';
         $config['allowed_types'] = 'gif|jpg|jpeg|png|GIF|JPG|JPEG|PNG|pdf|PDF';
         // $config['remove_spaces'] = 'true';
         $config['detect_mime'] = 'true';
-        $config['max_size'] = '2000';
+        $config['max_size'] = '3500';
         // $config['overwrite'] = TRUE;
         // $config['file_name']      = 'pdf-'.$renja;
- 
         $this->load->library('upload', $config);
-        
         // create an album if not already exist in uploads dir
         // wouldn't make more sence if this part is done if there are no errors and right before the upload ??
-        if (!is_dir('./uploaded/foto/'.$id))
+        if (!is_dir('./uploaded/foto/'))
         {
-            mkdir('./uploaded/foto/'.$id, 0777, true);
+            mkdir('./uploaded/foto/', 0777, true);
         }
 
         if (!$this->upload->do_upload('file')){
