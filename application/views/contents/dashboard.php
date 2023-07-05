@@ -34,7 +34,7 @@
                                 <i class="far fa-bookmark"></i>
                             </span>
                             <div class="info-box-content">
-                                <span class="info-box-text">Laporan</span>
+                                <span class="info-box-text">Total Laporan</span>
                                 <span class="info-box-number"> <?=$count_lapor->count?> </span>
                                 <div class="progress">
                                     <div class="progress-bar" style="width: 100%"></div>
@@ -128,11 +128,42 @@
                     <!-- /.col -->
                 </div>
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-6">
+                        <div class="card card-warning card-outline">
+                            <div class="card-header">
+                                <h3 class="card-title">Dasar Giat Terbanyak Dilaporkan</h3>
+                                <div class="card-tools">
+                                    <!-- <a href="#" class="btn btn-tool btn-sm">
+                                        <i class="fas fa-download"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-tool btn-sm">
+                                        <i class="fas fa-bars"></i>
+                                    </a> -->
+                                </div>
+                            </div>
+                            <div class="card-body table-responsive">
+                                <table class="table table-striped table-borderless table-valign-middle">
+                                    <thead>
+                                        <tr>
+                                            <th>Dasar Giat</th>
+                                            <th>#</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach($giat_terbanyak as $gt):?>
+                                        <tr>
+                                            <td><?=$gt->giat?></td>
+                                            <td><?=$gt->count?></td>
+                                        </tr>
+                                        <?php endforeach;?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="card card-info card-outline">
-                            <div class="card-header border-0">
+                            <div class="card-header">
                                 <h3 class="card-title">Terbanyak Melakukan Laporan</h3>
                                 <div class="card-tools">
                                     <!-- <a href="#" class="btn btn-sm btn-tool"><i class="fas fa-download"></i></a><a href="#" class="btn btn-sm btn-tool"><i class="fas fa-bars"></i></a> -->
@@ -157,3 +188,5 @@
         </div>
     </div>
 </div>
+
+

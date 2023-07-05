@@ -17,6 +17,7 @@ class Entry extends ED_Controller {
 	{
 		$this->data['_head_title'] = 'Siap Lapor Ketintang';
 		$this->data["pegawai"] = $this->m_pegawai->get("result",NULL,NULL,"nama");
+		$this->data["giat"] = $this->m_laporan->select_distinct_giat();
 		$this->data["_form"] = $this->load->view('contents/entry/_form', $this->data, TRUE);;
 		$this->data["status"] = '';
 
@@ -145,6 +146,7 @@ class Entry extends ED_Controller {
 		// $this->session->set_flashdata('_pop_up_script', "");
 		$this->data["pegawai"] = $this->m_pegawai->get("result",NULL,NULL,"nama");
 		$this->data["status"] = '';
+		$this->data["giat"] = $this->m_laporan->select_distinct_giat();
 		$this->_load_only_view('entry/_form');
 		// redirect('dashboard');
 	}

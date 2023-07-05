@@ -27,6 +27,9 @@
               	<option <?php if(!empty($entri) && $entri->giat == 'KEJADIAN DARURAT') {?>selected='' <?php }?>>KEJADIAN DARURAT</option>
               	<option <?php if(!empty($entri) && $entri->giat == 'KEGIATAN RUTIN') {?>selected='' <?php }?>>KEGIATAN RUTIN</option>
               	<option <?php if(!empty($entri) && $entri->giat == 'ARAHAN PIMPINAN') {?>selected='' <?php }?>>ARAHAN PIMPINAN</option>
+                <?php foreach($giat as $g):?>
+                <option><?=$g->giat?></option>
+                <?php endforeach;?>
             </select>
         </div>
         <div class="form-group">

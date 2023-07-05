@@ -24,6 +24,7 @@ class Dashboard extends ED_Controller {
         $this->data["count_giat2"] = $this->m_laporan->select_count_laporan_pergiat('KEJADIAN DARURAT');
         $this->data["count_giat3"] = $this->m_laporan->select_count_laporan_pergiat('KEGIATAN RUTIN');
         $this->data["count_giat4"] = $this->m_laporan->select_count_laporan_pergiat('ARAHAN PIMPINAN');
+        $this->data["giat_terbanyak"] = $this->m_laporan->select_giat_terbanyak();
         $this->data["laporan_terbanyak"] = $this->m_laporan->select_laporan_terbanyak();
 		
 		$this->_load_view_dashboard();

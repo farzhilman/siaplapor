@@ -33,6 +33,19 @@ class M_laporan extends ED_Model {
 		return $query->row();
 	}
 
+	public function select_giat_terbanyak()
+	{
+		$query = $this->db->query("
+			SELECT giat, count(giat) as count
+			from laporan
+			where is_hapus = 0
+			GROUP BY giat
+			order by count desc
+			Limit 5
+			");
+		return $query->result();
+	}
+
 	public function select_laporan_terbanyak()
 	{
 		$query = $this->db->query("
@@ -42,6 +55,17 @@ class M_laporan extends ED_Model {
 			GROUP BY petugas
 			order by count desc
 			Limit 5
+			");
+		return $query->result();
+	}
+
+	public function select_distinct_giat()
+	{
+		$query = $this->db->query("
+			SELECT DISTINCT giat
+			from laporan
+			where giat NOT IN ('LAPORAN WARGA', 'KEJADIAN DARURAT', 'KEGIATAN RUTIN', 'ARAHAN PIMPINAN')
+			order by giat
 			");
 		return $query->result();
 	}

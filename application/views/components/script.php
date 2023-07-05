@@ -73,7 +73,8 @@
 	      placeholder: 'Pilih Seksi'
 	    })
 	    $('#select2-giat').select2({
-	      placeholder: 'Pilih Dasar Giat'
+	      placeholder: 'Pilih Dasar Giat',
+	      tags: true
 	    })
 	    $('#select2-rw').select2({
 	      placeholder: 'Pilih RW'
