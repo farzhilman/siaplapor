@@ -43,7 +43,7 @@
         <a href="#" class="h1"><b>Siap</b>LAPOR</a>
       </div>
       <div class="card-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">Sistem Aplikasi Lapor Monitor</p>
         <p class="text-danger"><?php if($_msg != NULL){?><?=$_msg?><?php }?></p>
         <form id="form-login" action="<?=base_url('login/proses')?>" method="post">
           <div class="input-group mb-3">
