@@ -17,8 +17,8 @@
                   <img src="<?=base_url('assets/img/30-k.png')?>" height="75px">
                 </div>
                 <div class="row-md-6" style="padding-left: 10px;">
-                  LAPORAN HARIAN KEGIATAN KELURAHAN KETINTANG<br>
-                  "SIAP LARI" Sistem Aplikasi Lapor Monitor
+                  <h2>LAPORAN HARIAN KEGIATAN KELURAHAN KETINTANG</h2>
+                  <p class="text-muted">"SIAP LARI" Sistem Aplikasi Lapor Monitor</p>
                 </div>
               </div>
             </div>
