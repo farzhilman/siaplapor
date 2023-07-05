@@ -1,0 +1,16 @@
+# IDE Files
+#-------------------------
+/nbproject/
+.idea/*
+
+## Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+uploaded/
+application/config/config.php
+application/config/database.php
+sftp-config.json
