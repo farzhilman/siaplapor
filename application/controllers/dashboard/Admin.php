@@ -39,8 +39,6 @@ class Admin extends ED_Controller {
 
 		/* Load view Dashboard */
 		$this->load->view('dashboard_bersih_excel', $this->data);
-
-		$this->_load_view_dashboard('admin/index');
 	}
 }
 

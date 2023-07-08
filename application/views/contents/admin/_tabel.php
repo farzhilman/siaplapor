@@ -1,4 +1,4 @@
-<table id="example1" class="table table-bordered table-striped table-condensed">
+<table <?php if($cetak == 't'){?> class="table"<?php } else {?> id="example1" class="table table-bordered table-striped"<?php }?> >
   <thead>
     <tr>
       <th>No</th>
