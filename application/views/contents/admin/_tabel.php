@@ -11,7 +11,9 @@
       <th>Hasil Tinjau Lokasi</th>
       <th>Saran Masukan</th>
       <th>Dokumentasi</th>
+      <?php if($cetak != 't'){?>
       <th>Aksi</th>
+      <?php }?>
     </tr>
   </thead>
   <tbody>
@@ -33,11 +35,13 @@
             </a>
             <?php endif;?>
         </td>
+        <?php if($cetak != 't'){?>
     	<td style="text-align: center;">
     		<div class="btn-group-vertical">
   				<button type="button" class="btn bg-maroon btn-sm btn-hapus" id="btn-hapus-<?=$l->id?>" data-id="<?=$l->id?>" title="Hapus"><i class="fas fa-trash"></i></button>
 			</div>
 		</td>
+        <?php }?>
   	</tr>
   	<?php $a++; endforeach;?>
   </tbody>

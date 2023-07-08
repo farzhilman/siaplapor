@@ -1,3 +1,6 @@
+<?php
+header('Content-Disposition: attachment; filename="'.$nama_file.'.xls"');
+?>
 <!DOCTYPE html>
 <html lang="en">
 

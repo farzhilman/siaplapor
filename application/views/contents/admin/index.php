@@ -14,7 +14,12 @@
             <div class="card-header">
               <p class="card-title m-0 keterangan" style="text-align: justify;">
                 
-              </p>  
+              </p>
+              <div class="card-tools">
+	            <a href="<?=base_url('dashboard/admin/excel')?>" class="btn btn-tool" target="_blank">
+	              <i class="fas fa-download"></i> <i class="fas fa-file-excel"></i> Download Excel
+	            </a>
+	          </div>
             </div>
             <div class="card-body isi-tabel">
               <?=$_tabel?>
