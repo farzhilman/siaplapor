@@ -58,7 +58,7 @@ class Login extends ED_Controller {
 			$this->_flashdata_toast("success","Selamat Datang !");
 			redirect('dashboard');
 		} else {
-			echo "<script>console.log('Debug Objects: " . $log_login['kode'] . "' );</script>";
+			// echo "<script>console.log('Debug Objects: " . $log_login['kode'] . "' );</script>";
 			/* Flashdata dari pengecekan gagal */
 			if ($log_login['kode'] == '404') {
 				// $this->_flashdata_pop_up("danger","Username atau Password salah !!!");
@@ -72,6 +72,7 @@ class Login extends ED_Controller {
 			} else if ($log_login['kode'] == '301') {
 				// $this->_flashdata_pop_up("danger","Belum merupakan waktu login !!!");
 				$this->_flashdata_msg("danger","Belum merupakan waktu login !!!");
+				// echo "<script>".$this->session->flashdata('_pop_up_script')."</script>";
 			}
 			redirect('login');
 		}
@@ -142,6 +143,12 @@ class Login extends ED_Controller {
 			return $log_login;
 		}
 
+		if ($data_login->is_kunci == 1) {
+			$log_login['status_login'] = false;
+			$log_login['kode'] = "301";
+			return $log_login;
+		}
+
 		// /* Cek apakah locked user */
 		// if ($data_login->locked == 'YES') {
 		// 	$log_login['status_login'] = false;
@@ -162,6 +169,8 @@ class Login extends ED_Controller {
 		// 	$log_login['kode'] = "301";
 		// 	return $log_login;
 		// }
+
+
 		$log_login['status_login'] = true;
 		$log_login['kode'] = "200";
 		return $log_login;
