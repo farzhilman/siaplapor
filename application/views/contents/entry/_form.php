@@ -109,6 +109,9 @@
       $('#select2-rt').select2({
         placeholder: 'Pilih RT'
       })
+      $('#select2-tindaklanjut').select2({
+        placeholder: 'Pilih Tindak Lanjut'
+      })
 
       $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
       $('#tanggal').datetimepicker({
