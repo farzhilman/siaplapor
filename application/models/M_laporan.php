@@ -69,4 +69,31 @@ class M_laporan extends ED_Model {
 			");
 		return $query->result();
 	}
+
+	public function select_laporan_hari_ini($pegawai = '')
+	{
+		$query = $this->db->query("
+			SELECT giat, count(giat) as count
+			from laporan
+			where is_hapus = 0
+			and petugas like '%$pegawai%'
+			And DATE(date_created) = CURDATE()
+			GROUP BY giat
+			order by count desc
+			");
+		return $query->result();
+	}
+
+	public function select_total_laporan_user($pegawai = '')
+	{
+		$query = $this->db->query("
+			SELECT giat, count(giat) as count
+			from laporan
+			where is_hapus = 0
+			and petugas like '%$pegawai%'
+			GROUP BY giat
+			order by count desc
+			");
+		return $query->result();
+	}
 }

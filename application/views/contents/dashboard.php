@@ -27,166 +27,261 @@
                 <p class="card-title m-0 keterangan" style="text-align: justify;"> Selamat datang, <?=$this->session->userdata('user_name')?> ! </p>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="info-box bg-info">
-                            <span class="info-box-icon">
-                                <i class="far fa-bookmark"></i>
-                            </span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">Total Laporan</span>
-                                <span class="info-box-number"> <?=$count_lapor->count?> </span>
-                                <div class="progress">
-                                    <div class="progress-bar" style="width: 100%"></div>
+                <?php if($this->session->userdata('user_level') == 1){?>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="info-box bg-info">
+                                <span class="info-box-icon">
+                                    <i class="far fa-bookmark"></i>
+                                </span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Total Laporan</span>
+                                    <span class="info-box-number"> <?=$count_lapor->count?> </span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 100%"></div>
+                                    </div>
+                                    <span class="progress-description"></span>
                                 </div>
-                                <span class="progress-description"></span>
+                                <!-- /.info-box-content -->
                             </div>
-                            <!-- /.info-box-content -->
+                            <!-- /.info-box -->
                         </div>
-                        <!-- /.info-box -->
+                        <!-- /.col -->
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="info-box bg-success">
+                                <span class="info-box-icon">
+                                    <i class="far fa-comments"></i>
+                                </span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Laporan Warga</span>
+                                    <span class="info-box-number"> <?=$count_giat1->count?> </span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 
+                                            <?=$count_giat1->count/$count_lapor->count*100?>%">
+                                        </div>
+                                    </div>
+                                    <span class="progress-description"></span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="info-box bg-warning">
+                                <span class="info-box-icon">
+                                    <i class="fas fa-stopwatch"></i>
+                                </span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Kejadian Darurat</span>
+                                    <span class="info-box-number"> <?=$count_giat2->count?> </span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 
+                                            <?=$count_giat2->count/$count_lapor->count*100?>%">
+                                        </div>
+                                    </div>
+                                    <span class="progress-description"></span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="info-box bg-teal">
+                                <span class="info-box-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Kegiatan Rutin</span>
+                                    <span class="info-box-number"> <?=$count_giat3->count?> </span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 
+                                            <?=$count_giat3->count/$count_lapor->count*100?>%">
+                                        </div>
+                                    </div>
+                                    <span class="progress-description"></span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="info-box bg-danger">
+                                <span class="info-box-icon">
+                                    <i class="fas fa-book"></i>
+                                </span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Arahan Pimpinan</span>
+                                    <span class="info-box-number"> <?=$count_giat4->count?> </span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 
+                                            <?=$count_giat4->count/$count_lapor->count*100?>%">
+                                        </div>
+                                    </div>
+                                    <span class="progress-description"></span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
                     </div>
-                    <!-- /.col -->
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="info-box bg-success">
-                            <span class="info-box-icon">
-                                <i class="far fa-comments"></i>
-                            </span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">Laporan Warga</span>
-                                <span class="info-box-number"> <?=$count_giat1->count?> </span>
-                                <div class="progress">
-                                    <div class="progress-bar" style="width: 
-                                        <?=$count_giat1->count/$count_lapor->count*100?>%">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card card-warning card-outline">
+                                <div class="card-header">
+                                    <h3 class="card-title">Dasar Giat Terbanyak Dilaporkan</h3>
+                                    <div class="card-tools">
+                                        <!-- <a href="#" class="btn btn-tool btn-sm">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-tool btn-sm">
+                                            <i class="fas fa-bars"></i>
+                                        </a> -->
                                     </div>
                                 </div>
-                                <span class="progress-description"></span>
+                                <div class="card-body table-responsive">
+                                    <table class="table table-striped table-borderless table-valign-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Dasar Giat</th>
+                                                <th>#</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach($giat_terbanyak as $gt):?>
+                                            <tr>
+                                                <td><?=$gt->giat?></td>
+                                                <td><?=$gt->count?></td>
+                                            </tr>
+                                            <?php endforeach;?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <!-- /.info-box-content -->
                         </div>
-                        <!-- /.info-box -->
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="info-box bg-warning">
-                            <span class="info-box-icon">
-                                <i class="fas fa-stopwatch"></i>
-                            </span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">Kejadian Darurat</span>
-                                <span class="info-box-number"> <?=$count_giat2->count?> </span>
-                                <div class="progress">
-                                    <div class="progress-bar" style="width: 
-                                        <?=$count_giat2->count/$count_lapor->count*100?>%">
+                        <div class="col-lg-6">
+                            <div class="card card-info card-outline">
+                                <div class="card-header">
+                                    <h3 class="card-title">Terbanyak Melakukan Laporan</h3>
+                                    <div class="card-tools">
+                                        <!-- <a href="#" class="btn btn-sm btn-tool"><i class="fas fa-download"></i></a><a href="#" class="btn btn-sm btn-tool"><i class="fas fa-bars"></i></a> -->
                                     </div>
                                 </div>
-                                <span class="progress-description"></span>
+                                <div class="card-body"> <?php foreach($laporan_terbanyak as $lt):?> <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+                                        <p class="text-success text-xl">
+                                            <i class="ion ion-ios-refresh-empty"></i>
+                                        </p>
+                                        <p class="d-flex flex-column text-right">
+                                            <span class="font-weight-bold">
+                                                <i class="ion ion-android-arrow-up text-success"></i> <?=$lt->count?> laporan </span>
+                                            <span class="text-muted"> <?=$lt->petugas?> </span>
+                                        </p>
+                                    </div>
+                                    <!-- /.d-flex --> <?php endforeach;?> </div>
                             </div>
-                            <!-- /.info-box-content -->
                         </div>
-                        <!-- /.info-box -->
+                        <!-- /.col-md-6 -->
                     </div>
-                    <!-- /.col -->
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="info-box bg-teal">
-                            <span class="info-box-icon">
-                                <i class="fas fa-calendar-alt"></i>
-                            </span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">Kegiatan Rutin</span>
-                                <span class="info-box-number"> <?=$count_giat3->count?> </span>
-                                <div class="progress">
-                                    <div class="progress-bar" style="width: 
-                                        <?=$count_giat3->count/$count_lapor->count*100?>%">
+                <?php } else {?>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card card-warning card-outline">
+                                <div class="card-header">
+                                    <h3 class="card-title">Laporan Anda Hari Ini,</h3>
+                                    <div class="card-tools">
+                                        <!-- <a href="#" class="btn btn-tool btn-sm">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-tool btn-sm">
+                                            <i class="fas fa-bars"></i>
+                                        </a> -->
                                     </div>
                                 </div>
-                                <span class="progress-description"></span>
+                                <div class="card-body table-responsive">
+                                    <table class="table table-striped table-borderless table-valign-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Dasar Giat</th>
+                                                <th>#</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php if(empty($laporan_hari_ini)) {?>
+                                                <tr>
+                                                    <td colspan="2">Hari ini belum entri laporan.</td>
+                                                </tr>
+                                            <?php } else {?>
+                                                <?php foreach($laporan_hari_ini as $lh):?>
+                                                <tr>
+                                                    <td><?=$lh->giat?></td>
+                                                    <td><?=$lh->count?></td>
+                                                </tr>
+                                                <?php endforeach;?>
+                                            <?php }?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <!-- /.info-box-content -->
                         </div>
-                        <!-- /.info-box -->
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <div class="info-box bg-danger">
-                            <span class="info-box-icon">
-                                <i class="fas fa-book"></i>
-                            </span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">Arahan Pimpinan</span>
-                                <span class="info-box-number"> <?=$count_giat4->count?> </span>
-                                <div class="progress">
-                                    <div class="progress-bar" style="width: 
-                                        <?=$count_giat4->count/$count_lapor->count*100?>%">
+                        <div class="col-lg-6">
+                            <div class="card card-info card-outline">
+                                <div class="card-header">
+                                    <h3 class="card-title">Total Laporan Anda,</h3>
+                                    <div class="card-tools">
+                                        <!-- <a href="#" class="btn btn-sm btn-tool"><i class="fas fa-download"></i></a><a href="#" class="btn btn-sm btn-tool"><i class="fas fa-bars"></i></a> -->
                                     </div>
                                 </div>
-                                <span class="progress-description"></span>
+                                <div class="card-body table-responsive">
+                                    <table class="table table-striped table-borderless table-valign-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Dasar Giat</th>
+                                                <th>#</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach($total_laporan_user as $tl):?>
+                                            <tr>
+                                                <td><?=$tl->giat?></td>
+                                                <td><?=$tl->count?></td>
+                                            </tr>
+                                            <?php endforeach;?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <!-- /.info-box-content -->
                         </div>
-                        <!-- /.info-box -->
+                        <!-- /.col-md-6 -->
                     </div>
-                    <!-- /.col -->
-                </div>
+                <?php }?>
+
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="card card-warning card-outline">
-                            <div class="card-header">
-                                <h3 class="card-title">Dasar Giat Terbanyak Dilaporkan</h3>
-                                <div class="card-tools">
-                                    <!-- <a href="#" class="btn btn-tool btn-sm">
-                                        <i class="fas fa-download"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-tool btn-sm">
-                                        <i class="fas fa-bars"></i>
-                                    </a> -->
-                                </div>
+                        <div class="card card-success">
+                          <div class="card-header">
+                            <h3 class="card-title">Stacked Bar Chart</h3>
+
+                            <div class="card-tools">
+                              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                              </button>
+                              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                              </button>
                             </div>
-                            <div class="card-body table-responsive">
-                                <table class="table table-striped table-borderless table-valign-middle">
-                                    <thead>
-                                        <tr>
-                                            <th>Dasar Giat</th>
-                                            <th>#</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach($giat_terbanyak as $gt):?>
-                                        <tr>
-                                            <td><?=$gt->giat?></td>
-                                            <td><?=$gt->count?></td>
-                                        </tr>
-                                        <?php endforeach;?>
-                                    </tbody>
-                                </table>
-                            </div>
+                          </div>
+                          <div class="card-body">
+                            <div id="bar-chart" style="height: 300px;"></div>
+                          </div>
+                          <!-- /.card-body -->
                         </div>
+                        <!-- /.card -->
                     </div>
-                    <div class="col-lg-6">
-                        <div class="card card-info card-outline">
-                            <div class="card-header">
-                                <h3 class="card-title">Terbanyak Melakukan Laporan</h3>
-                                <div class="card-tools">
-                                    <!-- <a href="#" class="btn btn-sm btn-tool"><i class="fas fa-download"></i></a><a href="#" class="btn btn-sm btn-tool"><i class="fas fa-bars"></i></a> -->
-                                </div>
-                            </div>
-                            <div class="card-body"> <?php foreach($laporan_terbanyak as $lt):?> <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
-                                    <p class="text-success text-xl">
-                                        <i class="ion ion-ios-refresh-empty"></i>
-                                    </p>
-                                    <p class="d-flex flex-column text-right">
-                                        <span class="font-weight-bold">
-                                            <i class="ion ion-android-arrow-up text-success"></i> <?=$lt->count?> laporan </span>
-                                        <span class="text-muted"> <?=$lt->petugas?> </span>
-                                    </p>
-                                </div>
-                                <!-- /.d-flex --> <?php endforeach;?> </div>
-                        </div>
-                    </div>
-                    <!-- /.col-md-6 -->
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
