@@ -2,7 +2,7 @@ var Gooder = {
 
 	settings: {
 		name: "Gooder Javascript",
-		version: "1.0.0",
+		version: "1.0.1",
 
 		paths: { 
 			//menu
@@ -69,6 +69,7 @@ var Gooder = {
 		    	rt: 'required',
 		    	tinjau: 'required',
 		    	saran: 'required',
+		    	tindaklanjut: 'required',
 		    	dokumentasi: {
 		            required: true,
 		            extension: "JPG|jpg|JPEG|jpeg|PNG|png",
@@ -83,6 +84,7 @@ var Gooder = {
 		      rt: "Mohon untuk memilih RT.",
 		      tinjau: "Mohon untuk mengisi Hasil Tinjau Lokasi.",
 		      saran: "Mohon untuk mengisi Saran Masukan.",
+		      tindaklanjut: "Mohon untuk mengisi Tindak Lanjut.",
 		      dokumentasi: {
 		        required: "Mohon untuk mengupload foto.",                  
 		        extension: "File harus foto.",
