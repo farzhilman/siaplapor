@@ -10,6 +10,7 @@
       <th>RW</th>
       <th>Hasil Tinjau Lokasi</th>
       <th>Saran Masukan</th>
+      <th>Tindak Lanjut</th>
       <?php if($cetak != 't'){?>
       <th>Dokumentasi</th>
       <th>Aksi</th>
@@ -27,7 +28,8 @@
     	<td><?=$l->rt?></td>
     	<td><?=$l->rw?></td>
     	<td><?=$l->tinjau?></td>
-    	<td><?=$l->saran?></td>
+        <td><?=$l->saran?></td>
+    	<td><?=$l->tindaklanjut?></td>
         <?php if($cetak != 't'){?>
     	<td>
             <?php if ($l->dokumentasi != NULL):?>
