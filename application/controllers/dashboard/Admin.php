@@ -18,9 +18,16 @@ class Admin extends ED_Controller {
 		$this->data['_head_title'] = 'Siap Lapor Ketintang';
 		$this->data['status'] = '';
 		$this->data['cetak'] = '';
-		$where['is_hapus'] = '0';
-		$this->data['laporan'] = $this->m_laporan->get_by($where,"result", NULL, NuLL, 'date_created');
-		$this->data["_tabel"] = $this->load->view('contents/admin/_tabel', $this->data, TRUE);;
+		if ($this->session->userdata('user_level') == '3') {
+			$where['nama'] = $this->session->userdata('user_name');
+			$this->data["pegawai"] = $this->m_pegawai->get_by($where, "result",NULL,NULL,"nama");
+		} else {
+			$this->data["pegawai"] = $this->m_pegawai->get("result",NULL,NULL,"nama");
+		}
+		$this->data["giat"] = $this->m_laporan->select_distinct_giat();
+		// $where['is_hapus'] = '0';
+		// $this->data['laporan'] = $this->m_laporan->get_by($where,"result", NULL, NuLL, 'date_created');
+		// $this->data["_tabel"] = $this->load->view('contents/admin/_tabel', $this->data, TRUE);
 
 		$this->_load_view_dashboard('admin/index');
 	}
@@ -39,6 +46,26 @@ class Admin extends ED_Controller {
 
 		/* Load view Dashboard */
 		$this->load->view('dashboard_bersih_excel', $this->data);
+	}
+
+	public function filter()
+	{
+		$petugas = $this->input->post('petugas');
+		$seksi = $this->input->post('seksi');
+		$giat = $this->input->post('giat');
+		$rw = $this->input->post('rw');
+		$rt = $this->input->post('rt');
+
+		$where['is_hapus'] = '0';
+		$where['petugas'] = $petugas;
+		$where['seksi like'] = $seksi;
+		$where['giat like'] = $giat;
+		$where['rw like'] = $rw;
+		$where['rt like'] = $rt;
+		$this->data['laporan'] = $this->m_laporan->select_filter($petugas, $seksi, $giat, $rw, $rt);
+		$this->data['cetak'] = '';
+		$this->data['status'] = '';
+		$this->_load_only_view('admin/_tabel');
 	}
 }
 

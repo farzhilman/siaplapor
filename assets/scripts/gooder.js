@@ -2,23 +2,14 @@ var Gooder = {
 
 	settings: {
 		name: "Gooder Javascript",
-		version: "1.0.1",
+		version: "1.0.2",
 
 		paths: { 
 			//menu
 			// dashboard: "dashboard/dashboard/index",
 			hapus: base_url_js + "dashboard/entry/hapus",
 
-			submit_kunjungan: base_url_js + "awal/submit_kunjungan",
-			form_kunjungan: base_url_js + "awal/form_kunjungan",
-			form_pertanyaan: base_url_js + "awal/form_pertanyaan",
-			modal_kunjungan_aksi: base_url_js + "dashboard/dashboard/modal_kunjungan_aksi",
-			aksi_aksi: base_url_js + "dashboard/dashboard/aksi_aksi",
-			modal_view_aksi: base_url_js + "dashboard/dashboard/modal_view_aksi",
-			uploadjpg: base_url_js + "dashboard/upload/uploadjpg",
-			isiupload: base_url_js + "dashboard/upload/isiupload",
-			bidang_nama: base_url_js + "dashboard/dashboard/bidang_nama",
-			hapus_kunjungan_foto: base_url_js + "dashboard/upload/hapus_kunjungan_foto",
+			filter: base_url_js + "dashboard/admin/filter",
 			upload: "upload/upload"
 		},
 	},
@@ -154,6 +145,28 @@ var Gooder = {
 		});
 	},
 
+	report: function () {
+		$('body').on('click', '.btn-filter', function(event){
+        	petugas = $('#select2-petugas').find('option:selected').val();
+			seksi = $('#select2-seksi').find('option:selected').val();
+			giat = $('#select2-giat').find('option:selected').val();
+			rt = $('#select2-rt').find('option:selected').val();
+			rw = $('#select2-rw').find('option:selected').val();
+
+			$.ajax({
+				url: Gooder.settings.paths.filter,
+				type: 'POST',
+				data: {'petugas': petugas, 'seksi': seksi, 'giat': giat, 'rt': rt, 'rw': rw},
+				beforeSend: function(){
+					$(".isi-tabel").html("<i class='fa fa-spin fa-spinner'></i> Mohon Tunggu");
+				},
+				success: function(data){
+					$(".isi-tabel").html(data);
+				}
+			});
+		});
+	},
+
 	upload: function (){
         $('body').on('click','#upload-kunjungan-foto',function(e){
             e.preventDefault();
@@ -248,6 +261,7 @@ var Gooder = {
 	// Initialitation All Function
 	init: function(){
 		Gooder.kunjungan();
+		Gooder.report();
 		Gooder.upload();
 	}
 };

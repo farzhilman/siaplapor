@@ -65,23 +65,29 @@
 			//Initialize Select2 Elements
 			$('.select-pindah-pd').select2()
 	    $('#select2-petugas').select2({
-	      placeholder: 'Pilih Nama Petugas'
+	      placeholder: 'Pilih Nama Petugas',
+        allowClear: true
 	    })
 	  	$('#select2-seksi').select2({
-	      placeholder: 'Pilih Seksi'
+	      placeholder: 'Pilih Seksi',
+        allowClear: true
 	    })
 	    $('#select2-giat').select2({
 	      placeholder: 'Pilih Dasar Giat',
-	      tags: true
+	      tags: true,
+        allowClear: true
 	    })
 	    $('#select2-rw').select2({
-	      placeholder: 'Pilih RW'
+	      placeholder: 'Pilih RW',
+        allowClear: true
 	    })
 	    $('#select2-rt').select2({
-	      placeholder: 'Pilih RT'
+	      placeholder: 'Pilih RT',
+        allowClear: true
 	    })
 	    $('#select2-tindaklanjut').select2({
-	      placeholder: 'Pilih Tindak Lanjut'
+	      placeholder: 'Pilih Tindak Lanjut',
+        allowClear: true
 	    })
 
 	    $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });

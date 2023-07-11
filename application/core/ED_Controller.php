@@ -43,6 +43,7 @@ class ED_Controller extends CI_Controller
 		$this->data['_pop_up_script'] = $this->session->flashdata('_pop_up_script');
 		$this->data['_sidebar_focus'] = "";
 		$this->data['_print'] = "";
+		$this->data['_script__'] = "";
 
 
 		/* Tahun dasar pencatatan */

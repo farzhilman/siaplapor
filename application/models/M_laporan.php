@@ -69,4 +69,20 @@ class M_laporan extends ED_Model {
 			");
 		return $query->result();
 	}
+
+	public function select_filter($petugas, $seksi, $giat, $rw, $rt)
+	{
+		$query = $this->db->query("
+			SELECT *
+			from laporan
+			where petugas like '%$petugas%'
+			and seksi like '%$seksi%'
+			and giat like '%$giat%'
+			and rw like '%$rw%'
+			and rt like '%$rt%'
+			and is_hapus = '0'
+			order by date_created
+			");
+		return $query->result();
+	}
 }
