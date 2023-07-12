@@ -10,6 +10,7 @@ var Gooder = {
 			hapus: base_url_js + "dashboard/entry/hapus",
 
 			filter: base_url_js + "dashboard/admin/filter",
+			excel: base_url_js + "dashboard/admin/excel",
 			upload: "upload/upload"
 		},
 	},
@@ -161,7 +162,30 @@ var Gooder = {
 					$(".isi-tabel").html("<i class='fa fa-spin fa-spinner'></i> Mohon Tunggu");
 				},
 				success: function(data){
+					$(".div-export-excel").show();
 					$(".isi-tabel").html(data);
+				}
+			});
+		});
+
+		$('body').on('click', '.btn-excel', function(event){
+        	petugas = $('#select2-petugas').find('option:selected').val();
+			seksi = $('#select2-seksi').find('option:selected').val();
+			giat = $('#select2-giat').find('option:selected').val();
+			rt = $('#select2-rt').find('option:selected').val();
+			rw = $('#select2-rw').find('option:selected').val();
+
+			$.ajax({
+				url: Gooder.settings.paths.excel,
+				type: 'POST',
+				data: {'petugas': petugas, 'seksi': seksi, 'giat': giat, 'rt': rt, 'rw': rw},
+				beforeSend: function(){
+					// $(".isi-tabel").html("<i class='fa fa-spin fa-spinner'></i> Mohon Tunggu");
+				},
+				success: function(data){
+					// window.open(Gooder.settings.paths.excel + '?petugas=' + petugas + '&seksi=' + seksi + '&giat=' + giat + '&rw=' + rw + '&rt=' + rt, '_blank');
+					// window.open(Gooder.settings.paths.excel, '_blank');
+					// $(".fullcontent_bersih").html(data);
 				}
 			});
 		});

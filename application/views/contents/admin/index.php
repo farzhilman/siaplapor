@@ -22,6 +22,8 @@
                         <h4>Report Laporan</h4>
                     </div>
                 </div>
+                <form action="<?=base_url('dashboard/admin/excel')?>" method="post" target='_blank'>  
+
                 <!-- <div class="row" style="height: 30px;">
                     <div class="form-group col-md-12">
                         <label for="petugas">Filter Report</label>
@@ -90,9 +92,16 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group col-md-4">
-                        <button class="btn btn-primary btn-filter">Tampilkan Report</button>
+                    <div class="form-group col-md-4 div-export-excel float-right" style="display: none;">
+                        <button type="submit" class="btn btn-success btn-filter"><i class="fas fa-file-excel"></i> Export Excel</button>  
                     </div>
+                </form>
+                    <div class="form-group col-md-4">
+                        <a href='#' class="btn btn-primary btn-filter">Tampilkan Report</a>
+                    </div>
+                </div>         
+                <div class="row">
+                    
                 </div>
             </div>
             <div class="card-body">

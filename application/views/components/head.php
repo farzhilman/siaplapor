@@ -8,7 +8,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <!-- <meta http-equiv="refresh" content="1800; URL=<?=base_url()?>"> -->
-    <meta name="description" content="bappedalitbang surabaya">
+    <meta name="description" content="">
     <title><?php echo $_head_title.''.$_apps_title; ?></title>
     <link rel="stylesheet" href="<?=base_url('assets/fonts/font-family-sans.css')?>">
     <link rel="stylesheet" href="<?=base_url('assets/plugins/fontawesome-free/css/all.min.css')?>">

@@ -32,14 +32,20 @@ class Admin extends ED_Controller {
 		$this->_load_view_dashboard('admin/index');
 	}
 
+	// public function excel($petugas = '', $seksi = '', $giat = '', $rw = '', $rt = '')
 	public function excel()
 	{
 		$this->data['_head_title'] = 'Excel Siap Lapor Ketintang';
 		$this->data['cetak'] = 't';
 		$this->data['status'] = '';
 		$this->data['nama_file'] = 'Report Siap Lapor Ketintang - '.date('mdY - Hi');
-		$where['is_hapus'] = '0';
-		$this->data['laporan'] = $this->m_laporan->get_by($where,"result", NULL, NuLL, 'date_created');
+
+		$petugas = $this->input->post('petugas');
+		$seksi = $this->input->post('seksi');
+		$giat = $this->input->post('giat');
+		$rw = $this->input->post('rw');
+		$rt = $this->input->post('rt');
+		$this->data['laporan'] = $this->m_laporan->select_filter($petugas, $seksi, $giat, $rw, $rt);
 		$this->data['__head_page'] = $this->load->view('components/head', $this->data, TRUE);
 		$this->data['__script_page'] = $this->load->view('components/script', $this->data, TRUE);
 		$this->data['__content_page'] = $this->load->view('contents/admin/_tabel', $this->data, TRUE);
@@ -65,6 +71,12 @@ class Admin extends ED_Controller {
 		$this->data['laporan'] = $this->m_laporan->select_filter($petugas, $seksi, $giat, $rw, $rt);
 		$this->data['cetak'] = '';
 		$this->data['status'] = '';
+		$this->data['petugas'] = $petugas;
+		$this->data['seksi'] = $seksi;
+		$this->data['giat'] = $giat;
+		$this->data['rw'] = $rw;
+		$this->data['rt'] = $rt;
+
 		$this->_load_only_view('admin/_tabel');
 	}
 }
