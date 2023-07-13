@@ -92,17 +92,18 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group col-md-4 div-export-excel float-right" style="display: none;">
-                        <button type="submit" class="btn btn-success btn-filter"><i class="fas fa-file-excel"></i> Export Excel</button>  
+                    <div class="col-md-6">
+                        <div class="form-group float-left">
+                            <a href='#' class="btn btn-primary btn-filter">Tampilkan Report</a>
+                        </div>
                     </div>
-                </form>
-                    <div class="form-group col-md-4">
-                        <a href='#' class="btn btn-primary btn-filter">Tampilkan Report</a>
+                    <div class="col-md-6">
+                        <div class="form-group div-export-excel float-right" style="display: none;">
+                            <button type="submit" class="btn btn-success"><i class="fas fa-file-excel"></i> Export Excel</button>  
+                        </div>
                     </div>
-                </div>         
-                <div class="row">
-                    
                 </div>
+                </form>
             </div>
             <div class="card-body">
                 <div class="isi-tabel table-responsive">
