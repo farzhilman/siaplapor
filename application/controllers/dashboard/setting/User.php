@@ -8,14 +8,17 @@ class User extends ED_Controller {
 		parent::__construct();
 		//Do your magic here
 		if (!$this->session->has_userdata('user_level')) {
-			// redirect('login');
-			redirect('https://eplanning.surabaya.go.id/');
+			redirect('login');
 		}
 	}
 
 	public function index()
 	{
-
+		$this->data["status"] = '';
+		$where['user_id !='] = 'user_entry';
+		$this->data["pegawai"] = $this->master_user->get_by($where, "result",NULL,NULL,"user_level, user_name");
+		$this->data['_tabel'] = $this->load->view('contents/setting/_tabel_user', $this->data, TRUE);
+		$this->_load_view_dashboard('setting/user');
 	}
 
 	/* Halaman Edit */

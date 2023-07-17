@@ -9,7 +9,6 @@ class Admin extends ED_Controller {
 		//Do your magic here
 		if (!$this->session->has_userdata('user_level')) {
 			redirect('login');
-			// redirect('https://eplanning.surabaya.go.id/');
 		}
 	}
 

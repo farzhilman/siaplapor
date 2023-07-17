@@ -9,7 +9,6 @@ class Dashboard extends ED_Controller {
 		//Do your magic here
 		if (!$this->session->userdata('user_id')) {
 			redirect('login');
-			// redirect('https://eplanning.surabaya.go.id/');
 		}
 	}
 

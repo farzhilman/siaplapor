@@ -8,7 +8,6 @@ class Upload extends ED_Controller {
 		parent::__construct();
 		if (!$this->session->userdata('user_id')) {
             redirect('login');
-            // redirect('https://eplanning.surabaya.go.id/');
         }
 	}
  

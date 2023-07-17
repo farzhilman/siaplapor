@@ -36,6 +36,30 @@
             <label for="alamat">Alamat<code>*</code>:</label>
             <input type="text" class="form-control form-control-border border-width-2" id="alamat" name='alamat' placeholder="Input alamat" <?php if(!empty($entri)) {?>value="<?=$entri['alamat']?>" <?php }?>>
         </div>
+        <!-- Date and time -->
+        <div class="form-group">
+            <label>Tanggal & Jam Rencana Kunjungan<code>*</code>:</label>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="input-group date" id="tanggal" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#tanggal" name="tanggal"/>
+                    <div class="input-group-append" data-target="#tanggal" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+              </div>
+              <!-- <div class="col-md-3">
+                <div class="bootstrap-timepicker">
+                    <div class="input-group date" id="waktu" data-target-input="nearest">
+                      <input type="text" class="form-control datetimepicker-input" data-target="#waktu" name="waktu"/>
+                      <div class="input-group-append" data-target="#waktu" data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="far fa-clock"></i></div>
+                      </div>
+                      </div>
+                  </div>
+              </div> -->
+            </div>
+        </div>
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">

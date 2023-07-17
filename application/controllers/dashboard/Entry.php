@@ -9,7 +9,6 @@ class Entry extends ED_Controller {
 		//Do your magic here
 		if (!$this->session->userdata('user_id')) {
 			redirect('login');
-			// redirect('https://eplanning.surabaya.go.id/');
 		}
 	}
 
@@ -38,6 +37,7 @@ class Entry extends ED_Controller {
 		$petugas = $this->input->post('petugas');
 		$seksi = $this->input->post('seksi');
 		$giat = $this->input->post('giat');
+		$tanggal = $this->input->post('tanggal');
 		$alamat = $this->input->post('alamat');
 		$rw = $this->input->post('rw');
 		$rt = $this->input->post('rt');
@@ -51,6 +51,7 @@ class Entry extends ED_Controller {
 		$data['petugas'] = $petugas;
 		$data['seksi'] = $seksi;
 		$data['giat'] = $giat;
+		$data['tanggal'] = date('Y-m-d', strtotime($tanggal));
 		$data['alamat'] = $alamat;
 		$data['rw'] = $rw;
 		$data['rt'] = $rt;
@@ -102,6 +103,7 @@ class Entry extends ED_Controller {
 			$data_entri['petugas'] = $petugas;
 			$data_entri['seksi'] = $seksi;
 			$data_entri['giat'] = $giat;
+			$data_entri['tanggal'] = $tanggal;
 			$data_entri['alamat'] = $alamat;
 			$data_entri['rw'] = $rw;
 			$data_entri['rt'] = $rt;
