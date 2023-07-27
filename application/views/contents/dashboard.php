@@ -27,6 +27,7 @@
                 <p class="card-title m-0 keterangan" style="text-align: justify;"> Selamat datang, <?=$this->session->userdata('user_name')?> ! </p>
             </div>
             <div class="card-body">
+                <?php if ($this->session->userdata('user_level') != '3') {?>
                 <div class="row">
                     <div class="col-md-3 col-sm-6 col-12">
                         <div class="info-box bg-info">
@@ -184,6 +185,44 @@
                     </div>
                     <!-- /.col-md-6 -->
                 </div>
+                <?php }?>
+                <?php if ($this->session->userdata('user_level') == '3') {?>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card card-success card-outline">
+                            <div class="card-header">
+                                <h3 class="card-title">Total Isian Anda</h3>
+                                <div class="card-tools">
+                                    <!-- <a href="#" class="btn btn-tool btn-sm">
+                                        <i class="fas fa-download"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-tool btn-sm">
+                                        <i class="fas fa-bars"></i>
+                                    </a> -->
+                                </div>
+                            </div>
+                            <div class="card-body table-responsive">
+                                <table class="table table-striped table-borderless table-valign-middle">
+                                    <thead>
+                                        <tr>
+                                            <th>Dasar Giat</th>
+                                            <th>#</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach($isian_anda as $is):?>
+                                        <tr>
+                                            <td><?=$is->giat?></td>
+                                            <td><?=$is->count?></td>
+                                        </tr>
+                                        <?php endforeach;?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php }?>
             </div>
         </div>
     </div>

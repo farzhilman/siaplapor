@@ -6,6 +6,9 @@
     <li class="nav-item">
       <a href="<?=base_url('dashboard/entry')?>" class="nav-link">Entri</a>
     </li>
+    <li class="nav-item">
+      <a href="<?=base_url('dashboard/admin')?>" class="nav-link">Rekap</a>
+    </li>
     <!-- <li class="nav-item">
       <a href="#" class="nav-link">Report</a>
     </li> -->

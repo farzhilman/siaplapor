@@ -25,6 +25,10 @@ class Dashboard extends ED_Controller {
         $this->data["count_giat4"] = $this->m_laporan->select_count_laporan_pergiat('ARAHAN PIMPINAN');
         $this->data["giat_terbanyak"] = $this->m_laporan->select_giat_terbanyak();
         $this->data["laporan_terbanyak"] = $this->m_laporan->select_laporan_terbanyak();
+
+        if ($this->session->userdata('user_level') == '3') {
+        	$this->data["isian_anda"] = $this->m_laporan->isian_anda($this->session->user_name);
+		}
 		
 		$this->_load_view_dashboard();
 	}

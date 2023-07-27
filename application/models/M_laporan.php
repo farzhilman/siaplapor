@@ -33,7 +33,7 @@ class M_laporan extends ED_Model {
 		return $query->row();
 	}
 
-	public function select_giat_terbanyak()
+	public function select_giat_terbanyak($user = '')
 	{
 		$query = $this->db->query("
 			SELECT giat, count(giat) as count
@@ -42,6 +42,19 @@ class M_laporan extends ED_Model {
 			GROUP BY giat
 			order by count desc
 			Limit 5
+			");
+		return $query->result();
+	}
+
+	public function isian_anda($user = '')
+	{
+		$query = $this->db->query("
+			SELECT giat, count(giat) as count
+			from laporan
+			where is_hapus = 0
+			and petugas LIKE '%$user%'
+			GROUP BY giat
+			order by count desc
 			");
 		return $query->result();
 	}
