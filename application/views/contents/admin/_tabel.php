@@ -25,7 +25,7 @@
       <?php if($cetak != 't'){?>
       <th>Dokumentasi</th>
       <th>Aksi</th>
-      <?php else{?>
+      <?php } else{?>
       <th>Dokumentasi</th>
       <?php }?>
     </tr>
@@ -57,7 +57,7 @@
                 <button type="button" class="btn bg-maroon btn-sm btn-hapus" id="btn-hapus-<?=$l->id?>" data-id="<?=$l->id?>" title="Hapus"><i class="fas fa-trash"></i></button>
             </div>
         </td>
-        <?php else{?>
+        <?php } else{?>
         <td>
             <?php if ($l->dokumentasi != NULL):?>
             <a href="<?=base_url('uploaded/foto/'.$l->dokumentasi)?>"><?=base_url('uploaded/foto/'.$l->dokumentasi)?></a>
