@@ -18,6 +18,7 @@ class M_laporan extends ED_Model {
 			SELECT count(giat) as count
 			from laporan
 			where is_hapus = 0
+			and extract(MONTH FROM date_created) = extract(MONTH FROM now())
 			");
 		return $query->row();
 	}
@@ -29,6 +30,7 @@ class M_laporan extends ED_Model {
 			from laporan
 			where giat = '$giat'
 			and is_hapus = 0
+			and extract(MONTH FROM date_created) = extract(MONTH FROM now())
 			");
 		return $query->row();
 	}
@@ -39,6 +41,7 @@ class M_laporan extends ED_Model {
 			SELECT giat, count(giat) as count
 			from laporan
 			where is_hapus = 0
+			and extract(MONTH FROM date_created) = extract(MONTH FROM now())
 			GROUP BY giat
 			order by count desc
 			Limit 5
@@ -53,6 +56,7 @@ class M_laporan extends ED_Model {
 			from laporan
 			where is_hapus = 0
 			and petugas LIKE '%$user%'
+			and extract(MONTH FROM date_created) = extract(MONTH FROM now())
 			GROUP BY giat
 			order by count desc
 			");
@@ -65,6 +69,7 @@ class M_laporan extends ED_Model {
 			SELECT petugas, count(petugas) as count
 			from laporan
 			where is_hapus = 0
+			and extract(MONTH FROM date_created) = extract(MONTH FROM now())
 			GROUP BY petugas
 			order by count desc
 			Limit 5

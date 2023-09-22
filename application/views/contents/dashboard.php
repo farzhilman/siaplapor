@@ -24,7 +24,8 @@
     <div class="col-lg-12">
         <div class="card card-dark card-outline">
             <div class="card-header">
-                <p class="card-title m-0 keterangan" style="text-align: justify;"> Selamat datang, <?=$this->session->userdata('user_name')?> ! </p>
+                <p class="card-title m-0 keterangan" style="text-align: justify;"> Selamat datang, <?=$this->session->userdata('user_name')?> !
+                <br>Berikut Rekap Laporan Per Bulan ini:</p>
             </div>
             <div class="card-body">
                 <?php if ($this->session->userdata('user_level') != '3') {?>
@@ -48,7 +49,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-md-3 col-sm-6 col-12">
-                        <div class="info-box bg-success">
+                        <div class="info-box bg-warning">
                             <span class="info-box-icon">
                                 <i class="far fa-comments"></i>
                             </span>
@@ -68,7 +69,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-md-3 col-sm-6 col-12">
-                        <div class="info-box bg-warning">
+                        <div class="info-box bg-danger">
                             <span class="info-box-icon">
                                 <i class="fas fa-stopwatch"></i>
                             </span>
@@ -108,7 +109,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-md-3 col-sm-6 col-12">
-                        <div class="info-box bg-danger">
+                        <div class="info-box bg-pink">
                             <span class="info-box-icon">
                                 <i class="fas fa-book"></i>
                             </span>
